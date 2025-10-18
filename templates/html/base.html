@@ -1,0 +1,75 @@
+{# {% load static %}  #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}    {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap5/bootstrap.min.css' %}">
+    <script src="{% static 'bootstrap5/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap5/bootstrap.min.css' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+<header class="p-3 text-bg-dark border-dark mb-2">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                {# <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"> #}
+                <use xlink:href="#bootstrap"></use>
+                <a href="{% url 'blog:index' %}">
+                    <img src="{% static 'image/logo.png' %}" alt="" , height="40">
+                </a>
+            </a>
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="{% url 'blog:index' %}" class="nav-link px-2 text-secondary">首页</a></li>
+                <li><a href="{% url 'blog:blog_public' %}" class="nav-link px-2 text-white">发贴</a></li>
+                {#                <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>#}
+                {#                <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>#}
+                {#                <li><a href="#" class="nav-link px-2 text-white">About</a></li>#}
+            </ul>
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search"
+                       class="form-control form-control-dark text-bg-dark"
+                       placeholder="Search..."
+                       aria-label="Search" wfd-id="id0">
+            </form>
+
+            {% if user.is_authenticated %}
+                <div class="flex-shrink-0 dropdown">
+                    <a href="#"
+                       class="d-block link-body-emphasis text-decoration-none dropdown-toggle show"
+                       data-bs-toggle="dropdown" aria-expanded="true">
+                        <img
+                                src="{% static 'image/夜间城市.png' %}" alt="mdo" width="32" height="32"
+                                class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small shadow show"
+                        style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 27.2px, 0px);"
+                        data-popper-placement="bottom-end">
+                        <li><a href="{% url 'zzzikauth:logout' %}" class="dropdown-item">退出登录</a></li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">{{ request.user.username }}</a></li>
+                    </ul>
+                </div>
+            {% else %}
+                <div class="text-end">
+                    <a href="{% url 'zzzikauth:zzz_login' %}" type="button" class="btn btn-outline-light me-2">登录</a>
+                    <a href="{% url 'zzzikauth:register' %}" type="button" class="btn btn-warning">注册</a>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+</header>
+{#container  rouded圆角#}
+<main class="container bg-white p-3 rounded">
+    {% block main %}{% endblock %}
+</main>
+</body>
+</html>

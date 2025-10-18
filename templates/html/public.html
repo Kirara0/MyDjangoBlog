@@ -1,0 +1,56 @@
+{% extends 'html/base.html' %}
+
+{% block title %}
+    绳网
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'wangeditor/style.css' %}">
+    <script src="{% static 'wangeditor/index.js' %}"></script>
+    <script src="{% static 'js/pub_blog.js' %}"></script>
+    <style>
+        #editor—wrapper {
+            border: 1px solid #ccc;
+            z-index: 100; /* 按需定义 */
+        }
+
+        #toolbar-container {
+            border-bottom: 1px solid #ccc;
+        }
+
+        #editor-container {
+            height: 500px;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <h1>发布帖子</h1>
+    <div class="mt-3">
+        <form action="" method="POST">
+            <div class="mt-3">
+                <label class="form-label" for="id_title">标题</label>
+                <input type="text" name="title" id="id_title" class="form-control">
+            </div>
+            <div class="mt-3">
+                <label class="form-label" for="id_title">标签</label>
+                <select name="category" id="id_category" class="form-control">
+                    <option value="1">求助</option>
+                    <option value="2">避雷</option>
+                    <option value="3">分享</option>
+                </select>
+            </div>
+            <div class="mt-3">
+                <label class="form-label" for="id_title">内容</label>
+                <div id="editor—wrapper">
+                    <div id="toolbar-container"><!-- 工具栏 --></div>
+                    <div id="editor-container"><!-- 编辑器 --></div>
+                </div>
+            </div>
+
+            <div class="mt3 text-end">
+                <button type="submit" class="btn btn-primary">发布</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

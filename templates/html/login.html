@@ -1,0 +1,33 @@
+{% extends 'html/base.html' %}
+{% block title %}
+    登录
+{% endblock %}
+{% block main %}
+    <h1 class="bg-white">登录</h1>
+    <div style="max-width: 300px;" class="m-auto">
+        <h1>登录</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="mt-3">
+                <label for="username">用户名</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="用户名">
+            </div>
+            <div class="mt-3">
+                <label for="password">密码</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="密码">
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="remember" value="1" id="checkChecked" checked>
+                <label class="form-check-label" for="checkChecked">
+                    记住密码
+                </label>
+            </div>
+
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary">登录</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
