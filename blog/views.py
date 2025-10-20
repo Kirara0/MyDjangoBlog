@@ -1,19 +1,25 @@
-from django.http import JsonResponse, HttpResponseRedirect
-from django.shortcuts import render, reverse
+from django.http import JsonResponse, HttpResponseRedirect, Http404
+from django.shortcuts import render, reverse, redirect
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
-from django.views.decorators.http import require_http_methods
+from django.views.decorators.http import require_http_methods, require_POST, require_GET
 from .models import BlogCategory, Blog, BlogComment
 from .forms import PubBlogForm
+from django.db.models import Q
 
 
 # Create your views here.
 def index(request):
-    return render(request, 'html/index.html')
+    blogs = Blog.objects.all()
+    return render(request, 'html/index.html', context={'blogs': blogs})
 
 
 def blog_detail(request, blog_id):
-    return render(request, 'html/detail.html')
+    try:
+        blog = Blog.objects.get(pk=blog_id)
+    except Blog.DoesNotExist:
+        raise Http404
+    return render(request, 'html/detail.html', context={'blog': blog})
 
 
 # 在settings添加LOGIN_URL = '/auth/login/'后，登录装饰器可以直接使用LOGIN_URL
@@ -37,3 +43,22 @@ def blog_public(request):
         else:
             print(form.errors)
             return JsonResponse({'code': 400, 'msg': '发布失败'})
+
+
+@require_POST
+@login_required(login_url=reverse_lazy('zzzikauth:zzz_login'))
+def blog_comment(request):
+    blog_id = request.POST.get('blog_id')
+    content = request.POST.get('content')
+    BlogComment.objects.create(blog_id=blog_id, content=content, author=request.user)
+    # 刷新评论列表
+
+    return redirect(reverse('blog:blog_detail', kwargs={'blog_id': blog_id}))
+
+
+@require_GET
+def search(request):
+    keywords = request.GET.get('keywords')
+    # 从标题和内容中查找有关keyword
+    blogs = Blog.objects.filter(Q(title__icontains=keywords) | Q(content__icontains=keywords)).all()
+    return render(request, 'html/index.html', context={'blogs': blogs})

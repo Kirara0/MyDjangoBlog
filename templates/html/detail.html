@@ -4,30 +4,32 @@
 {% endblock %}
 
 {% block main %}
-    <h1>{{ post.title }}</h1>
+    <h1>{{ blog.title }}</h1>
     <hr>
     <div class="mt-2">
         <img src="{% static 'image/夜间城市.png' %}" class="rounded-circle" width="40" height="40" alt="">
         <span>Seed</span>
-        <span class="ms-2">{{ post.author }}</span>
+        <span class="ms-2">{{ blog.author.username }}</span>
         <span class="ms-2">于</span>
-        <span class="ms-2">{{ post.create_time }}发布</span>
+        <span class="ms-2">{{ blog.create_time|date:'Y-m-d H:i:s' }}发布</span>
     </div>
     <hr>
-    <img src="static/image/夜间城市.png" class="card-img-top" alt="...">
+    <img src="{% static 'image/夜间城市.png' %}" class="card-img-top" alt="..." >
 
     <div class="py-2">
-        这是帖子详情
+        {{ blog.content|safe }}
     </div>
     <hr>
     <div class="mt-2">
-        <h3>评论</h3>
-        <form action="" method="POST">
+        <h3>评论({{ blog.comments_set.all|length }})</h3>
+        <form action="{% url 'blog:blog_comment' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="blog_id" value="{{ blog.id }}">
             <div class="mt-2">
-                <input type="text" class="form-control" placeholder="请输入评论">
+                <input type="text" class="form-control" placeholder="请输入评论" name="content">
             </div>
             <div class="text-end mt-2">
-                <button type="button" class="btn btn-primary">提交</button>
+                <button type="submit" class="btn btn-primary">提交</button>
 
             </div>
         </form>
@@ -35,22 +37,19 @@
 
     <div class="mt-2">
         <ul class="list-group">
-            <li class="list-group-item mb-2">
+            {% for comment in blog.comments_set.all %}
+                <li class="list-group-item mb-2">
                 <div class="d-flex justify-content-between">
                     <div class="user-info">
                         <img src="{% static 'image/夜间城市.png' %}" class="rounded-circle" width="40" height="40"
                              alt="">
-                        <span class="ms-2">Seed</span>
+                        <span class="ms-2">{{ comment.author.username }}</span>
                     </div>
-                    <div class="create-time" style="line-height: 40px;">时间：{{ post.create_time }}</div>
+                    <div class="create-time" style="line-height: 40px;">时间：{{ comment.create_time }}</div>
                 </div>
-                <div class="ms-2"> 这是评论</div>
+                <div class="ms-2"> {{ comment.content }}</div>
 
-            </li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A fourth item</li>
-            <li class="list-group-item">And a fifth one</li>
+            {% endfor %}
         </ul>
     </div>
 {% endblock %}

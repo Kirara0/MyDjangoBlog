@@ -6,4 +6,6 @@ urlpatterns = [
     path('index/', views.index, name='index'),
     path('detail/<int:blog_id>/', views.blog_detail, name='blog_detail'),
     path('public/', views.blog_public, name='blog_public'),
+    path('comment/', views.blog_comment, name='blog_comment'),
+    path('search/', views.search, name='search'),
 ]

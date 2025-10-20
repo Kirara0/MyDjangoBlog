@@ -9,172 +9,26 @@
     <h1 class="bg-white">今日热门 </h1>
     {#    row-gap-2 行间距2 row-cols-5 列数5#}
     <div class="row row-5 row-gap-3">
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'image/logo.png' %}" class="card-img-top" alt="...">
-            <div class="card-header d-flex justify-content-between">
-                <div>
-                    <img src="{% static 'image/logo.png' %}" class="rounded-circle" width="40" height="40" alt="">
-                    <span>Seed</span>
+        {% for blog in blogs %}
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'image/logo.png' %}" class="card-img-top" alt="...">
+                    <div class="card-header d-flex justify-content-between">
+                        <a href="{% url 'blog:blog_detail' blog.id %}"></a>
+                        <div>
+                            <img src="{% static 'image/logo.png' %}" class="rounded-circle" width="40" height="40"
+                                 alt="" href="{% url 'blog:blog_detail' blog.id %}">
+                            <span>{{ blog.author.username }}</span>
+                        </div>
+                    </div>
+                    <div class="card-title">
+                        <a href="{% url 'blog:blog_detail' blog.id %}">{{ blog.title }}</a>
+                    </div>
+                    <div class="card-body">
+                        <a href="{% url 'blog:blog_detail' blog.id %}"></a>
+                        <p class="card-text">{{ blog.content|truncatechars_html:100 }}</p>
+                    </div>
                 </div>
             </div>
-            <div class="card-title">
-                <a href="#">Seed真好看1</a>
-            </div>
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card’s content.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'image/云间.png' %}" class="card-img-top" alt="...">
-            <div class="card-header d-flex justify-content-between">
-                <div>
-                    <img src="{% static 'image/云间.png' %}" class="rounded-circle" width="40" height="40" alt="">
-                    <span>Seed</span>
-                </div>
-            </div>
-            <div class="card-title">
-                <a href="#">Seed真好看2</a>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the
-                        card’s content.</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'image/夏日.png' %}" class="card-img-top" alt="...">
-            <div class="card-header d-flex justify-content-between">
-                <div>
-                    <img src="{% static 'image/夏日.png' %}" class="rounded-circle" width="40" height="40"
-                         alt="">
-                    <span>Seed</span>
-                </div>
-            </div>
-            <div class="card-title">
-                <a href="#">Seed真好看3</a>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                        of
-                        the
-                        card’s content.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'image/撞车.png' %}" class="card-img-top" alt="...">
-            <div class="card-header d-flex justify-content-between">
-                <div>
-                    <img src="{% static 'image/撞车.png' %}" class="rounded-circle" width="40" height="40"
-                         alt="">
-                    <span>Seed</span>
-                </div>
-            </div>
-            <div class="card-title">
-                <a href="#">Seed真好看4</a>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the
-                        bulk
-                        of
-                        the
-                        card’s content.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'image/夜间城市.png' %}" class="card-img-top" alt="...">
-            <div class="card-header d-flex justify-content-between">
-                <div>
-                    <img src="{% static 'image/夜间城市.png' %}" class="rounded-circle" width="40"
-                         height="40" alt="">
-                    <span>Seed</span>
-                </div>
-            </div>
-            <div class="card-title">
-                <a href="#">Seed真好看</a>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up
-                        the
-                        bulk
-                        of
-                        the
-                        card’s content.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'image/夜间城市.png' %}" class="card-img-top" alt="...">
-            <div class="card-header d-flex justify-content-between">
-                <div>
-                    <img src="{% static 'image/夜间城市.png' %}" class="rounded-circle" width="40"
-                         height="40" alt="">
-                    <span>Seed</span>
-                </div>
-            </div>
-            <div class="card-title">
-                <a href="#">Seed真好看</a>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up
-                        the
-                        bulk
-                        of
-                        the
-                        card’s content.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'image/云间.png' %}" class="card-img-top" alt="...">
-            <div class="card-header d-flex justify-content-between">
-                <div>
-                    <img src="{% static 'image/云间.png' %}" class="rounded-circle" width="40" height="40" alt="">
-                    <span>Seed</span>
-                </div>
-            </div>
-            <div class="card-title">
-                <a href="#">Seed真好看2</a>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the
-                        card’s content.</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'image/云间.png' %}" class="card-img-top" alt="...">
-            <div class="card-header d-flex justify-content-between">
-                <div>
-                    <img src="{% static 'image/云间.png' %}" class="rounded-circle" width="40" height="40" alt="">
-                    <span>Seed</span>
-                </div>
-            </div>
-            <div class="card-title">
-                <a href="#">Seed真好看2</a>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the
-                        card’s content.</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
+        {% endfor %}
 {% endblock %}

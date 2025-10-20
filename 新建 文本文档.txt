@@ -1,0 +1,149 @@
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'image/云间.png' %}" class="card-img-top" alt="...">
+            <div class="card-header d-flex justify-content-between">
+                <div>
+                    <img src="{% static 'image/云间.png' %}" class="rounded-circle" width="40" height="40" alt="">
+                    <span>Seed</span>
+                </div>
+            </div>
+            <div class="card-title">
+                <a href="#">Seed真好看2</a>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the
+                        card’s content.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'image/夏日.png' %}" class="card-img-top" alt="...">
+            <div class="card-header d-flex justify-content-between">
+                <div>
+                    <img src="{% static 'image/夏日.png' %}" class="rounded-circle" width="40" height="40"
+                         alt="">
+                    <span>Seed</span>
+                </div>
+            </div>
+            <div class="card-title">
+                <a href="#">Seed真好看3</a>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                        of
+                        the
+                        card’s content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'image/撞车.png' %}" class="card-img-top" alt="...">
+            <div class="card-header d-flex justify-content-between">
+                <div>
+                    <img src="{% static 'image/撞车.png' %}" class="rounded-circle" width="40" height="40"
+                         alt="">
+                    <span>Seed</span>
+                </div>
+            </div>
+            <div class="card-title">
+                <a href="#">Seed真好看4</a>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the
+                        bulk
+                        of
+                        the
+                        card’s content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'image/夜间城市.png' %}" class="card-img-top" alt="...">
+            <div class="card-header d-flex justify-content-between">
+                <div>
+                    <img src="{% static 'image/夜间城市.png' %}" class="rounded-circle" width="40"
+                         height="40" alt="">
+                    <span>Seed</span>
+                </div>
+            </div>
+            <div class="card-title">
+                <a href="#">Seed真好看</a>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up
+                        the
+                        bulk
+                        of
+                        the
+                        card’s content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'image/夜间城市.png' %}" class="card-img-top" alt="...">
+            <div class="card-header d-flex justify-content-between">
+                <div>
+                    <img src="{% static 'image/夜间城市.png' %}" class="rounded-circle" width="40"
+                         height="40" alt="">
+                    <span>Seed</span>
+                </div>
+            </div>
+            <div class="card-title">
+                <a href="#">Seed真好看</a>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up
+                        the
+                        bulk
+                        of
+                        the
+                        card’s content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'image/云间.png' %}" class="card-img-top" alt="...">
+            <div class="card-header d-flex justify-content-between">
+                <div>
+                    <img src="{% static 'image/云间.png' %}" class="rounded-circle" width="40" height="40" alt="">
+                    <span>Seed</span>
+                </div>
+            </div>
+            <div class="card-title">
+                <a href="#">Seed真好看2</a>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the
+                        card’s content.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'image/云间.png' %}" class="card-img-top" alt="...">
+            <div class="card-header d-flex justify-content-between">
+                <div>
+                    <img src="{% static 'image/云间.png' %}" class="rounded-circle" width="40" height="40" alt="">
+                    <span>Seed</span>
+                </div>
+            </div>
+            <div class="card-title">
+                <a href="#">Seed真好看2</a>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the
+                        card’s content.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>

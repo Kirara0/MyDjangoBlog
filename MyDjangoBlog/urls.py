@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls', 'blog')),
     path('auth/', include('zzzikauth.urls')),
+
 ]
